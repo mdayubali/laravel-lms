@@ -3,6 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Course;
+use App\Models\Curriculum;
+use App\Models\Lead;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
@@ -43,6 +47,19 @@ class DatabaseSeeder extends Seeder
         $permission->assignRole($role);
 
         $user->assignRole($role);
+
+        // Lead seeder
+
+        Lead::factory()->count(100)->create();
+        // course
+        $course = Course::create([
+            'name' => 'Laravel',
+            'description' => 'lorem Ut tempor rebum consetetur rebum diam sed sit. Justo elitr amet sea sed magna. Aliquyam consetetur sea dolor amet at.',
+            'image' => 'https://api.lorem.space/image/movie?w=300&h=300&hash=qiqvhz1e',
+
+        ]);
+
+        Curriculum::factory()->count(100)->create();
     }
 
 }

@@ -28,38 +28,44 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $user = new User();
-        $user->name = 'Super Admin';
-        $user->email = 'super@admin.com';
-        $user->password = bcrypt('password');
 
-        $user->save();
 
-        //roles and permission
-        $role =Role::create([
-            'name' => 'Super Admin',
-        ]);
-        $permission = Permission::create([
-            'name' => 'create admin'
-        ]);
-
-        $role->givePermissionTo($permission);
-        $permission->assignRole($role);
-
-        $user->assignRole($role);
+        $this->create_user_with_role('Super Admin', 'Super Admin', 'superadmin@lms.test');
+        $this->create_user_with_role('Communication', 'Comminication Team', 'communication@lms.test');
+        $teacher =$this->create_user_with_role('Teacher', 'Teacher', 'teacher@lms.test');
 
         // Lead seeder
-
         Lead::factory()->count(100)->create();
         // course
         $course = Course::create([
             'name' => 'Laravel',
             'description' => 'lorem Ut tempor rebum consetetur rebum diam sed sit. Justo elitr amet sea sed magna. Aliquyam consetetur sea dolor amet at.',
             'image' => 'https://api.lorem.space/image/movie?w=300&h=300&hash=qiqvhz1e',
+            'user_id' => $teacher->id,
 
         ]);
 
         Curriculum::factory()->count(100)->create();
+    }
+
+    private function create_user_with_role($type,$name,$email){
+
+        $role = Role::create([
+            'name' => $type,
+        ]);
+        $user = User::create([
+            'name' => $name,
+            'email' => $email,
+            'password' => bcrypt('password'),
+        ]);
+        if($type=='Super Admin'){
+            $permission = Permission::create([
+                'name' => 'create-admin'
+            ]);
+            $role->givePermissionTo($permission);
+
+        }
+        return $user;
     }
 
 }

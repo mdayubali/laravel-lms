@@ -30,9 +30,9 @@
 
         <h3 class="font-bold mt-5">Notes</h3>
         @foreach ($notes as $note )
-            <p>{{ $note->description }}</p>
+            <p class="shadow-sm bg-gray-100 py-3 px-2 mb-3">{{ $note->description }}</p>
         @endforeach
-
+        <h2 class="font-bold mt-5">Add New Note</h2>
         <form wire:submit.prevent="addNote">
             <textarea wire:model.lazy="note" id="note" class="lms-input mb-5"></textarea>
             <button type="submit" class="bg-blue-500 px-4 py-3 rounded">Save</button>

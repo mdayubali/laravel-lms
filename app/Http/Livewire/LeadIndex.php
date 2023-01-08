@@ -17,6 +17,7 @@ class LeadIndex extends Component
 
     }
     public function leadDelete($id){
+        // permission_check('lead-management');
         $lead = Lead::findOrFail($id);
         $lead->delete();
         flash()->addInfo('Lead Deleted Successfully.');

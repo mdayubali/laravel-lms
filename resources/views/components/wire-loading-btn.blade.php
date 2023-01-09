@@ -5,4 +5,4 @@
 
     <span class="pl-2">Updating....</span>
 </div>
-<button wire:loading.remove type="submit" class="mt-4 bg-sky-600 py-3 px-6 inline rounded-md ">Update</button>
+<button wire:loading.remove type="submit" class="mt-4 bg-sky-600 py-3 px-6 inline rounded-md ">Save</button>

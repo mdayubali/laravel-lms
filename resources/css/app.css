@@ -8,4 +8,6 @@
 .lms-input{
     @apply block w-full  px-4 py-3 leading-tight text-gray-700 border rounded appearance-none ;
 }
-
+.lms-btn{
+    @apply block bg-sky-400 px-4 py-3 rounded
+}

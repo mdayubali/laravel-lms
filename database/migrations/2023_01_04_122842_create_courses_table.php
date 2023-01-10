@@ -19,7 +19,14 @@ return new class extends Migration
             $table->string('description');
             $table->string('image');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->float('price')->default(0);
             $table->timestamps();
+        });
+        // course student
+        Schema::create('course_student', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('course_id')->constrained('courses')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
         });
     }
 

@@ -45,6 +45,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'lorem Ut tempor rebum consetetur rebum diam sed sit. Justo elitr amet sea sed magna. Aliquyam consetetur sea dolor amet at.',
             'image' => 'https://api.lorem.space/image/movie?w=300&h=300&hash=qiqvhz1e',
             'user_id' => $teacher->id,
+            'price'     => 500,
 
         ]);
 

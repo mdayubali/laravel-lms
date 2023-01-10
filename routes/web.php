@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdmissionController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleConroller;
@@ -33,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('lead', LeadController::class);
     Route::resource('user', UserController::class);
     Route::resource('role', RoleConroller::class);
+    Route::get('/admission', [AdmissionController::class, 'admission'])->name('admission');
 });
 
 require __DIR__.'/auth.php';

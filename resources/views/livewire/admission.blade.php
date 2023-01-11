@@ -27,10 +27,10 @@
                     </div>
                 @endif
                     @if (!@empty($selectedCourse))
-                        <p class="mb-2">Price : ${{ number_format($course->price,2) }}</p>
-                       {{-- <div class="mb-4">
-                        <input wire:model="payment" type="number" step=".01" class="lms-input" placeholder="Pay now">
-                       </div> --}}
+                        <p class="mb-2">Price : ${{ number_format($selectedCourse->price,2) }}</p>
+                       <div class="mb-4">
+                        <input wire:model="payment" type="number" step=".01" class="lms-input" max="{{ number_format($selectedCourse->price,2) }}" placeholder="Pay now">
+                       </div>
                        @include('components.wire-loading-btn')
                     @endif
 

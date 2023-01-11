@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdmissionController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleConroller;
@@ -31,10 +32,18 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::resource('lead', LeadController::class);
-    Route::resource('user', UserController::class);
-    Route::resource('role', RoleConroller::class);
     Route::get('/admission', [AdmissionController::class, 'admission'])->name('admission');
+    //resource route
+    Route::resources([
+        'lead' => LeadController::class,
+        'user' => UserController::class,
+        'role' => RoleConroller::class,
+        'invoice' => InvoiceController::class,
+    ]);
+
+
+
+
 });
 
 require __DIR__.'/auth.php';

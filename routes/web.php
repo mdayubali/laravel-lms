@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdmissionController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\CurriculumController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\ProfileController;
@@ -35,10 +37,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/admission', [AdmissionController::class, 'admission'])->name('admission');
     //resource route
     Route::resources([
-        'lead' => LeadController::class,
-        'user' => UserController::class,
-        'role' => RoleConroller::class,
+        'lead'    => LeadController::class,
+        'user'    => UserController::class,
+        'role'    => RoleConroller::class,
         'invoice' => InvoiceController::class,
+        'course'  => CourseController::class,
+        'class'   => CurriculumController::class,
     ]);
 
 

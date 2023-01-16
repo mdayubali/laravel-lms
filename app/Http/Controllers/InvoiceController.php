@@ -50,21 +50,27 @@ class InvoiceController extends Controller
      */
     public function show($id)
     {
-        $DBinnvoice = Invoice::findOrFail($id);
-        $customer = new Buyer([
-            'name'          => $DBinnvoice->user->name,
-            'custom_fields' => [
-                'email' => $DBinnvoice->user->email,
-            ],
+
+        return view('user.invoice.show', [
+            'invoice_id' => $id,
         ]);
+        // $DBinnvoice = Invoice::findOrFail($id);
+        // $customer = new Buyer([
+        //     'name'          => $DBinnvoice->user->name,
+        //     'custom_fields' => [
+        //         'email' => $DBinnvoice->user->email,
+        //     ],
+        // ]);
 
-        $item = (new InvoiceItem())->title('Service 1')->pricePerUnit(2);
+        // $item = (new InvoiceItem())->title('Service 1')->pricePerUnit(2);
 
-        $invoice = \LaravelDaily\Invoices\Invoice::make()
-            ->buyer($customer)
-            ->addItem($item);
+        // $invoice = \LaravelDaily\Invoices\Invoice::make()
+        //     ->buyer($customer)
+        //     ->addItem($item);
 
-        return $invoice->stream();
+        // return $invoice->stream();
+
+
 
     }
 

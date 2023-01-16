@@ -1,9 +1,9 @@
 <div>
     <table class="w-full table-auto">
      <tr>
-         <th class="border px-2 py-2 text-left">ID</th>
-         <th class="border px-2 py-2 text-left">User</th>
-         <th class="border px-2 py-2 text-left">Due Date</th>
+         <th class="border px-2 py-2">ID</th>
+         <th class="border px-2 py-2">User</th>
+         <th class="border px-2 py-2">Due Date</th>
          <th class="border px-2 py-2">Amount</th>
          <th class="border px-2 py-2">Paid</th>
          <th class="border px-2 py-2">Due</th>
@@ -18,7 +18,7 @@
          <td class="border px-2 py-2 text-center">{{ $invoice->amount()['paid']}}</td>
          <td class="border px-2 py-2 text-center">{{ $invoice->amount()['due']}}</td>
          <td class="border px-2 py-2">
-             <div class="flex items-center">
+             <div class="flex items-center justify-center">
                  <a href="{{ route('invoice.edit',$invoice->id) }}">
                      @include('components.icons.edit')
                  </a>

@@ -68,5 +68,6 @@ class Admission extends Component
         $this->leads =  [];
 
         flash()->addSuccess('Admission successfully Completed');
+        return to_route('invoice.index');
     }
 }

@@ -16,10 +16,18 @@ return new class extends Migration
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
             $table->text('description');
-            $table->foreignId('curriculum_id')->nullable()->constrained('curricula')->onDelete('cascade');
-            $table->foreignId('exam_id')->nullable()->constrained('exams')->onDelete('cascade');
-            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade');
+            $table->timestamps();
+        });
+        Schema::create('lead_note', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('note_id')->nullable()->constrained('notes')->onDelete('cascade');;
             $table->foreignId('lead_id')->nullable()->constrained('leads')->onDelete('cascade');
+            $table->timestamps();
+        });
+        Schema::create('curriculum_note', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('note_id')->nullable()->constrained('notes')->onDelete('cascade');;
+            $table->foreignId('curriculum_id')->nullable()->constrained('curricula')->onDelete('cascade');
             $table->timestamps();
         });
     }

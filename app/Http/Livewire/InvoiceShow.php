@@ -6,14 +6,18 @@ use App\Models\Invoice;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class InvoiceIndex extends Component
+class InvoiceShow extends Component
 {
+    public $invoice_id;
     public function render()
     {
-        $invoices = Invoice::paginate(50);
-        return view('livewire.invoice-index',[
-            'invoices'  => $invoices,
+
+        // dd($this->invoice_id);
+        $invoice = Invoice::findOrFail($this->invoice_id);
+        return view('livewire.invoice-show',[
+            'invoice'=> $invoice
         ]);
+
     }
     public function invoiceDelete($id){
         $invoice_id = Invoice::findOrFail($id);

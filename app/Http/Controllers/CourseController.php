@@ -19,9 +19,10 @@ class CourseController extends Controller
         ]);
     }
     public function show($id){
-        $course = Course::where('id', $id)->with('curricula')->first();
-        // dd($id);
-        return view('course.show',['course' => $course]);
+        // $course = Course::where('id', $id)->with('curricula')->first();
+        $course = Course::findOrFail($id);
+        // dd($course);
+        return view('course.show',['course_id' => $course->id]);
     }
     public function destroy($id){
 

@@ -2,9 +2,9 @@
     <x-slot name="header">
        <div class="flex justify-between">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Signle Courses') }}
+            {{ __('Courses') }}
         </h2>
-        <a href="{{ route('course.index') }}" class="lms-btn">All Courses</a>
+        {{-- <a href="{{ route('course.create') }}" class="lms-btn">Add a Course</a> --}}
        </div>
     </x-slot>
 
@@ -12,14 +12,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                   {{-- <livewire:course-show :course_id="$course"/> --}}
-                     
-                     <livewire:course-show :course_id="$course_id" /> 
-                        
+                    <livewire:course-index />
                 </div>
-
             </div>
-
         </div>
     </div>
 </x-app-layout>

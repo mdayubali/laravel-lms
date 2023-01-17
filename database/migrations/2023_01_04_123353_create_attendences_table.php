@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('attendences', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('class_id')->constrained('curricula')->onDelete('cascade');
+            $table->foreignId('curriculum_id')->constrained('curricula')->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->unique(['curriculum_id','user_id']);
             $table->timestamps();
         });
     }

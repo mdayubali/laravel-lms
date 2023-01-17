@@ -17,9 +17,13 @@
                  <a href="{{ route('course.edit',$course->id) }}">
                      @include('components.icons.edit')
                  </a>
-                 <a class="px-2" href="{{ route('course.show',$course->id) }}">
+                <a class="px-2" href="{{ route('course.show',$course->id) }}">
                      @include('components.icons.view')
                  </a>
+
+                 {{-- <a class="px-2" href="{{ route('class.show',$course->user_id) }}">
+                     @include('components.icons.view')
+                 </a>  --}}
                  <form onsubmit="return confirm('Are you sure to delete?')" wire:submit.prevent="deleteCourse({{ $course->id }})">
                      <button type="submit">
                          @include('components.icons.delete')

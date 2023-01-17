@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Attendence extends Model
 {
+    protected $fillable = [
+        'curriculum_id',
+        'user_id'
+    ];
     use HasFactory;
 }

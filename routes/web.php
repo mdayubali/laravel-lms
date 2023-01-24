@@ -6,6 +6,8 @@ use App\Http\Controllers\CurriculumController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\RoleConroller;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -43,6 +45,8 @@ Route::middleware('auth')->group(function () {
         'invoice' => InvoiceController::class,
         'course'  => CourseController::class,
         'class'   => CurriculumController::class,
+        'question'   => QuestionController::class,
+        'quiz'   => QuizController::class,
     ]);
 
 

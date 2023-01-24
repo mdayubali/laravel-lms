@@ -29,6 +29,12 @@
                         {{ __('Leads') }}
                     </x-nav-link>
                     @endcan
+                    <x-nav-link :href="route('quiz.index')" :active="request()->routeIs('lead.index')">
+                        {{ __('Quiz') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('question.index')" :active="request()->routeIs('lead.index')">
+                        {{ __('Question') }}
+                    </x-nav-link>
                 </div>
             </div>
 

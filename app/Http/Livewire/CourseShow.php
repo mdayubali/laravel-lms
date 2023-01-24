@@ -13,18 +13,18 @@ class CourseShow extends Component
     public function render()
     {
         $course = Course::where('id', $this->course_id)->first();
-       // dd($course);
+        // dd($course);
         $curriculums = Curriculum::where('course_id', $this->course_id)->get();
 
         return view('livewire.course-show', [
-            'course' => $course,
+            'course'      => $course,
             'curriculums' => $curriculums,
         ]);
     }
 
     public function curriculamDelete($id)
     {
-        $curriculum = Curriculum::findOrFail($id);
+        $curriculum   = Curriculum::findOrFail($id);
 
         $curriculum->delete();
 
